@@ -1,0 +1,12 @@
+m <- read.table("macrodata.csv", sep=",", skip=5, header=TRUE)
+attach(m) 
+layout(matrix(c(1,2),2,1))
+acf(detrend.Unemploy, main="ACF of Unemployment Rates")
+pacf(detrend.Unemploy, main="PACF of Unemployment Rates") 
+detrend.Unemploy.aic <- matrix(rep(0,49), 7, 7)
+for (i in 0:6) {
+	for (j in 0:6) {
+		detrend.Unemploy.aic[i+1,j+1] <- arima(detrend.Unemploy, order=c(i,0,j))$aic
+	}
+}
+detach(m)

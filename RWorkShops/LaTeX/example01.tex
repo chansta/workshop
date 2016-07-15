@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{general}
+\author{Nargess Golshan}
+\title{An Introduction to \LaTeX{}}
+\date{May 2015} 
+
+\begin{document}
+
+
+		\section{Introduction} \label{sec:intro}
+	This little note introduces the basic concept of \LaTeX{}, one of the world most popular typesetting languages. 
+	\section{The Basic} \label{sec:basic}
+	In Section \ref{sec:intro}, the overall structure of \LaTeX{} was introduced, this section will focus on typesetting mathematical expression. Consider the following stochastic differential equation:
+	\begin{equation} \label{eq:form1} 
+		dX_t = \mu dt + \sigma dW_t
+	\end{equation} 
+	\noindent where $dW_t$ denotes the standard Wiener process. This equation has the equivalent form:
+	\begin{equation} \label{eq:form2}
+		X_t = X_0 + \mu + \sigma \int^t_0 dW_s ds.
+	\end{equation} 
+	\noindent Equation (\ref{eq:form2}) is often called the integral form of stochastic Equation (\ref{eq:form1}). 
+	
+\end{document}

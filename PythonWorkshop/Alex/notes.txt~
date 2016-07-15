@@ -1,0 +1,4 @@
+prices = #data from stock prices
+obv = #data from on balance volume 
+ma_price = moving_average(prices) 
+ma_obv = moving_average(obv) 

@@ -1,0 +1,85 @@
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{graphicx}
+\RequirePackage{natbib}
+\RequirePackage{enumerate}
+%\RequirePackage{fancyheadings}
+%\RequirePackage{doublespace} 
+\RequirePackage{array}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Abf}{\mathbf{A}}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\setlength{\oddsidemargin}{4.6mm} 
+\setlength{\voffset}{-5mm}
+\setlength{\topmargin}{2mm}
+\setlength{\headheight}{2mm}
+\setlength{\headsep}{10mm}
+\setlength{\footskip}{20mm}
+\setlength{\textwidth}{155mm}
+\setlength{\textheight}{212mm}
+\def\address#1{\gdef\@address{#1}}
+\def\keywords#1{\gdef\@keywords{#1}}
+\def\email#1{\gdef\@email{#1}}
+\let\@notemarkc\@empty
+\let\@address\@empty
+\let\@notemark\@empty
+\let\@keywords\@empty
+\renewcommand{\maketitle}{%
+	\par\vspace{10mm} %
+	\thispagestyle{empty}
+	\begin{spacing}{1} %
+	\begin{center}
+		\huge\@title \vspace{5mm}\par %
+		\normalfont\normalsize \@author \par %
+		\normalfont\@address \vspace{5mm} \par% 
+		\normalfont\@date \vspace{5mm}\par %
+	%	\normalfont\itshape Email: $\underline{\text{@email}}$ \vspace{5mm}\par %
+	\end{center}%
+	\end{spacing} %
+	}
+\renewcommand*\refname{REFERENCES}
+\renewenvironment{abstract} {% 
+	\begin{spacing}{1} %
+	\noindent \textbf{Abstract:} }%
+	{\par\vspace{5mm} %
+	\noindent \itshape\textbf{Keywords:} \@keywords %
+	\end{spacing} %
+	\pagebreak
+	\pagenumbering{arabic}
+	} 
+\newenvironment{acknow}{%
+	\noindent \section*{ACKNOWLEDGEMENT} %
+	}%
+	{ \par } 
+\renewcommand{\section}{\@startsection%
+	{section}%
+	{0}%
+	{0mm}%
+	{\baselineskip}%
+	{\baselineskip}%
+	{\normalfont\normalsize\bfseries}%
+	} 
+\renewcommand{\subsection}{\@startsection%
+	{subsection}%
+	{1}%
+	{0mm}%
+	{\baselineskip}%
+	{\baselineskip}%
+	{\normalfont\normalsize} } 
+\renewcommand{\subsubsection}{\@startsection%
+	{subsubsection}%
+	{2}%
+	{0mm}%
+	{\baselineskip}%
+	{\baselineskip}%
+	{\normalfont\normalsize} }
+\newcounter{defcount}
+\newenvironment{definition}[1][]{\ignorespaces\par\noindent\refstepcounter{defcount}{\bfseries Definition \arabic{defcount} {#1} }}{\par\noindent} 
+\newcounter{examplecount}
+\newenvironment{example}{\ignorespaces\par\noindent\refstepcounter{examplecount}{\bfseries Example \arabic{examplecount} }}{\par\noindent}
+\newenvironment{proving}{\par\noindent {\bfseries Proof:} }{$\blacksquare$\par\noindent} 

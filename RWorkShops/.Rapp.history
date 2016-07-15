@@ -1,0 +1,103 @@
+q(save="nop")
+q(save="no")
+library(urca)
+install.packages(urca)
+help(install.packages)
+q(save="no")
+install.packages("skewt")
+help(install.packages)
+q(save="no")
+4 -> x
+x
+q(save="no")
+setwd("~/Dropbox/RWorkShops/")
+help(read.table)
+m <- read.table("edata.csv", sep=",", header=TRUE, skil=4)
+m <- read.table("edata.csv", sep=",", header=TRUE, skip=4)
+names(m)
+dim(m)
+m[1]
+m[0]
+m[1]
+m[2]
+m[2,3]
+m[2,1:3]
+m["MS"]
+names(m)
+attach(m)
+plot(MS, type="l")
+line(Apple, col="red")
+line(Apple, color="red")
+help(line)
+help(abline)
+line(Apple)
+abline(Apple)
+plot(MS, type="l")
+plot(Apple)
+plot(Apple, type="l")
+lines(MS, color="red")
+plot(Apple, type="l")
+lines(MS, col="red")
+lines(Intel, col="blue")
+summary(Apple)
+test <- lm(Apple~MS+Intel)
+summary(test)
+cor
+help(cor)
+cor(m)
+anova(first)
+ls()
+anova(test)
+install.packages(moments)
+install.packages("moments")
+library(moments)
+help(moments)
+help.search(moments)
+help.search("moments")
+help.search("kurtosis")
+help("skewness")
+kurtosis(m)
+rMS <- 100*log(MS[2:lenght(MS)]/MS[1:(lenght(MS)-1)])
+rMS <- 100*log(MS[2:length(MS)]/MS[1:(length(MS)-1)])
+kurtosis(rMS)
+rm <- 100*log(m[2:dim(m)[1],]/m[1:(dim(m)[1]-1)])
+rm <- 100*log(m[2:dim(m)[1],]/m[1:(dim(m)[1]-1),])
+dim(rm)
+names(rm)
+plot(rm["MS"], type="l")
+rm["MS"]
+dim(rm["MS"])
+plot(rm["MS"][1], type="l")
+plot(rm[,1], type="l")
+kurtosis(rm)
+rm["MS"][1:3]
+rm["MS"]
+rm[1:3,"MS"]
+rm[,"MS"]
+plot(rm[,"MS"],type="l")
+rm["MS"][]
+rm["MS"][1]
+rm["MS"][2]
+rm["MS"][1]
+help(layout)
+layout(matrix(c(1,2),2,1))
+acf(MS)
+pacf(MS)
+title(main="Mircosoft")
+acf(MS, main="Microsoft")
+pacf(MS, main="Microsoft")
+ls()
+acf(rMS, main="ACF of Microsoft Returns")
+pacf(rMS, main="PACF of Microsoft Returns")
+pacf(rMS, main="PACF of Microsoft Returns", type="b")
+pacf(rMS, main="PACF of Microsoft Returns", type="p")
+acf(rMS, main="ACF of Microsoft Returns", type="correlation")
+pacf(rMS, main="PACF of Microsoft Returns", type="p")
+acf(rMS, main="ACF of Microsoft Returns", type="correlation")
+pacf(rMS, main="PACF of Microsoft Returns")
+help(acf)
+matrix(c(1,3,2,3))
+matrix(c(1,3,2,3),2,2)
+matrix(c(1,3,2,3),2,2, byrow=TRue)
+matrix(c(1,3,2,3),2,2, byrow=TRUE)
+q(save="no")

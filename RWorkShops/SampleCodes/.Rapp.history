@@ -1,0 +1,129 @@
+install.packages(urca)
+g <- 5
+g+5
+q(save="no")
+library(urca)
+help(ur.df)
+y = seq(-3,3,0.01)
+len(y)
+length(y)
+uy <- ur.df(y)
+uy
+name(uy)
+names(uy)
+uy
+summary(uy)
+uy$coefficients
+uy$Coefficients
+uy['Coefficients']
+uy[3]
+uy
+summary(uy)
+uy[3]
+uy[1]
+uy[1,]
+uy[,1]
+dim(uy)
+length(uy)
+uy
+show(uy)
+uy["teststats"]
+uy["teststat"]
+uy$teststat
+uy[teststat]
+t <- show(uy)
+t
+ur.df
+uy@teststat
+uy@teststat[1]
+show(uy)
+q(save="no")
+help("glm")
+q(save="no")
+ar1
+ar1 <- function(T, p, y0) {}
+ar1 <- function(T, p, y0) { y[1] = y0; for i in 2:T {y[i]=y[i-1] + rnorm(1)} }
+ar1 <- function(T, p, y0) { y[1] = y0; for (i in 2:T) {y[i]=y[i-1] + rnorm(1);} y; }
+ar1 <- function(T,p,y0) {#
+	y[1] = y0;#
+	for (i in 2:T) {#
+		y[i] = p*y[i-1]+rnorm(1);#
+	}#
+	y#
+}
+y <- ar1(100,0.5,0)
+ar1 <- function(T,p,y0) {#
+	y <- c();#
+	y[1] <- y0;#
+	for (i in 2:T) {#
+		y[i] <- p*y[i-1]+rnorm(1);#
+	}#
+	y#
+}
+y <- ar1(100,0.5,0.1)
+plot(y, type="l")
+acf(y)
+pacf(y)
+help(sample)
+sy <- sample(y, size=100)
+acf(sy)
+y == sy
+acf(y)
+acf(sy)
+pacf(sy)
+sy <- sample(x, size=100, replace=TRUE)
+sy <- sample(y, size=100, replace=TRUE)
+acf(y)
+pacf(y)
+acf(sy)
+pacf(sy)
+sy <- sample(y, size=1000, replace=TRUE)
+acf(sy)
+pacf(sy)
+y <- ar1(1000,0.5,0.1)
+sy <- sample(y, size=500)
+acf(y)
+acf(sy)
+pacf(y)
+pacf(sy)
+y <- ar1(1000,0.9,0.1)
+sy <- sample(y,size=100)
+acf(y)
+acf(sy)
+y <- ar1(500,0.9,0.1)
+sy <- sample(y,size=100)
+acf(y)
+acf(sy)
+sy <- sample(y,size=80)
+acf(sy)
+plot(sy)
+plot(sy, type="l")
+sy
+y
+q(save="no")
+A <- matrix(c(1,2,3,4),2,2)
+B <- matrix(c(2,1,-1,3),2,2)
+A
+B
+A%*%B
+inv(A)
+det(A)
+det(B)
+help(identity)
+help.search("identity matrix")
+diag(1)
+diag(4)
+diag(c(1,2))
+solve(A,diag(2))
+iA <- solve(A,diag(2))
+iA%*%A
+q(save="no")
+setwd("~/unit/RWorkShops/SampleCodes/")
+source("macrodata.r")
+setwd("~/Dropbox/RWorkShops/SampleCodes/")
+source("macrodata.r")
+rUnemploy <- 100*log(Unemploy[2:79]/Unemploy[1:78])
+source("macrodata.r")
+detach(m)
+detach(m)
+q(save="no")

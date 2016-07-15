@@ -1,0 +1,2 @@
+ma_price = moving_average(m_cp) 
+ma_obv = moving_average(m_OBV) 

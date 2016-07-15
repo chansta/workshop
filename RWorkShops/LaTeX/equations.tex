@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+\title{An Introduction to \LaTeX - A document preparation system}
+\author{}
+\date{}
+% Highly recommended package, pretty much all you need. Automatically loads amsmath package.
+\usepackage{mathtools}
+
+\begin{document}
+\maketitle
+
+
+\section{Equations}
+
+\subsection{Fractions}
+Writing a fraction like this $(1/2)$ is a crime. Please consider $\frac{1}{2}$.
+
+
+\subsection{Standard Normal Distribution}
+All units, there is a APV on the Bell Curve (aka The Standard Normal Distribution).
+\begin{equation} \label{nd}
+f_{X}(x) = \left(\frac{1}{2\pi}\right) \  \textrm{exp}(-x^2/2)
+\end{equation}
+
+The reader should note that equation \ref{nd} is armed and dangerous.
+
+\begin{equation*} 
+f_{X}(x) = \left(\frac{1}{2\pi}\right) \  \textrm{exp}(-x^2/2) 
+\end{equation*}
+
+HQ, we have lost the suspect.
+
+\subsection{GARCH Model}
+Ladies and Gentleman, the GARCH($p$,$q$) model:
+
+\begin{eqnarray}
+\phi_{r}(L) r_{t} &=& \mu + \theta_{s}(L) \epsilon_{t} \label{arma} \\ 
+\epsilon_{t} &=& \eta_{t} \sqrt{h_{t}} \hspace{0.25cm} \eta_{t} \sim \textrm{iid}(0,1) \label{errorterm}  \\
+h_{t} &=& \omega + \sum^{p}_{i=1}\alpha_{i}\epsilon^{2}_{t-i} + \sum^{q}_{i=1}\beta_{i}h_{t-i}\label{garch}.
+\end{eqnarray}
+
+
+\subsection{Matrices}
+Presenting the three famous productions from the \emph{Wachowski} brothers:
+
+\begin{equation}
+\begin{matrix}
+	a & b & c \\
+	d & e & f \\
+	g & h & i
+\end{matrix}
+\end{equation}
+
+\begin{equation}
+\begin{matrix}
+	1 & 0 \\
+	0 & 1
+\end{matrix}
+\end{equation}
+
+\begin{equation}
+A_{m,n} =
+\begin{pmatrix}
+	a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+	a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+	\vdots  & \vdots  & \ddots & \vdots  \\
+	a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+\end{pmatrix}
+\end{equation}
+
+\subsection{Functions}
+
+This looks beautiful, but beware it will judge you!
+
+\[ f(n) =
+\begin{cases}
+n/2       & \quad \text{if } n \text{ is even}\\
+-(n+1)/2  & \quad \text{if } n \text{ is odd}\\
+\end{cases}
+\]
+
+How good does this integral sign look?
+
+$$\int y dx$$
+
+Could certainly improve equation by certain measure.
+
+$$\int y \ \mathrm{d}x$$
+
+and bound it
+
+$$\int^{x + \delta{x}}_{x} y \ \mathrm{d}x$$
+
+
+
+
+
+\end{document}
