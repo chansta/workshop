@@ -37,6 +37,8 @@ class pca(object):
             self.data = self.m
         else:
             self.data = self.m[self.var]
+        self.k = len(self.data.columns)
+        self.pclabel = ['PC{0}'.format(i) for i in range(1,self.k+1)]
         if self.method == 'svd':
             self.svd()
         elif self.method == 'eigen':
@@ -50,7 +52,7 @@ class pca(object):
         self.combination = V.transpose() 
         self.pca = np.dot(self.combination, self.data.values.transpose())
         self.pca = self.pca.transpose()
-        self.pca = pd.DataFrame(self.pca, index=self.data.index, columns=self.data.columns)
+        self.pca = pd.DataFrame(self.pca, columns=self.pclabel, index=self.data.index)
         
     def eigen(self):
         w,V = np.linalg.eig(self.data.cov())
@@ -58,7 +60,5 @@ class pca(object):
         self.combination = V
         self.pca = np.dot(V,self.data.values.transpose())
         self.pca = self.pca.transpose()
-        self.pca = pd.DataFrame(self.pca, index=self.data.index, columns=self.data.columns)
+        self.pca = pd.DataFrame(self.pca, columns=self.pclabel, index=self.data.index)
             
-        
-        
