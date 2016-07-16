@@ -49,7 +49,7 @@ class pca(object):
     def svd(self):
         U,s,V = np.linalg.svd(self.data-self.data.mean()) 
         self.variance = np.power(s,2)/sum(np.power(s,2))
-        self.combination = V.transpose() 
+        self.combination = V 
         self.pca = np.dot(self.combination, self.data.values.transpose())
         self.pca = self.pca.transpose()
         self.pca = pd.DataFrame(self.pca, columns=self.pclabel, index=self.data.index)
@@ -57,8 +57,8 @@ class pca(object):
     def eigen(self):
         w,V = np.linalg.eig(self.data.cov())
         self.variance = w/sum(w)
-        self.combination = V
-        self.pca = np.dot(V,self.data.values.transpose())
+        self.combination = V.transpose()
+        self.pca = np.dot(self.combination,self.data.values.transpose())
         self.pca = self.pca.transpose()
         self.pca = pd.DataFrame(self.pca, columns=self.pclabel, index=self.data.index)
             
