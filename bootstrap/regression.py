@@ -14,6 +14,7 @@ import scipy.stats as sps
 import scipy as sp
 import matplotlib.pyplot as plt
 import lm as lm 
+import pandas as pd
 
 N = 1000 #sample size
 B = 500 #bootstrap sample size ie number of replication
@@ -27,7 +28,7 @@ m = np.c_[y,x] #constructing dataset
 ols_main = lm.lm('y~c+x', data=m, header=['y','x']) #estimating linear regression based on simulated dataset
 ols_main.estimate()
 coef = np.zeros((B,2)) #initiate vector to store bootstrapped coefficient estiamtes. 
-for j in range(0,500):
+for j in range(0,B):
     index = npr.choice(range(0,N), size=N, replace=True) #construct index set for bootstrap sample. 
     bootsample = m[list(index)] #extract bootstrap sample. 
     ols_temp = lm.lm('y~c+x', data=bootsample, header=['y','x']) #estimate regression based on bootstrap sample
@@ -40,8 +41,8 @@ truecov = np.diag(cov)
 ###############################################################################################################################
 summary = np.c_[truecov.reshape((2,1)), np.diag(ols_main.cov).reshape((2,1)), np.array([sps.tvar(coef[:,i]) for i in range(0,2)]).reshape((2,1))]
 summary = np.r_[np.c_[np.r_[a,b], ols_main.coef.reshape((2,1)), np.array([sps.tmean(coef[:,i]) for i in range(0,2)]).reshape((2,1))], summary]
-header = ['label', 'Theoretical', 'Sample Estimate', 'Bootstrap Estiamte']
+header = ['Theoretical', 'Sample Estimate', 'Bootstrap Estiamte']
 labelx = ['a','b','var a', 'var b']
-string = "\t".join(header)+'\n'
-string = string + "\n".join([labelx[i]+'\t'+"\t".join(['{0:4.4}'.format(j) for j in summary[i]]) for i in range(0,4)])
-print('\n'+string)
+result = pd.DataFrame(summary, columns=header, index = labelx)
+print(result)
+

@@ -17,7 +17,7 @@ import pandas as pd
 import statsmodels.formula.api as smi 
 
 N = 1000 #sample size
-B = 500 #bootstrap sample size ie number of replication
+B = 1500 #bootstrap sample size ie number of replication
 a = 1  #true interpcept
 b = 0.5 #true slope
 s = 0.4 #true variance
@@ -28,7 +28,7 @@ m = pd.DataFrame(np.c_[y,x], columns=['y','x']) #constructing dataset
 ols_main = smi.ols('y~1+x', data=m).fit() #estimating linear regression based on simulated dataset
 ols_main.summary()
 coef = np.zeros((B,2)) #initiate vector to store bootstrapped coefficient estiamtes. 
-for j in range(0,500):
+for j in range(0,B):
     index = npr.choice(range(0,N), size=N, replace=True) #construct index set for bootstrap sample. 
     bootsample = m.iloc[list(index), :] #extract bootstrap sample. 
     ols_temp = smi.ols('y~1+x', data=bootsample).fit() #estimate regression based on bootstrap sample
@@ -40,8 +40,7 @@ truecov = np.diag(cov)
 ###############################################################################################################################
 summary = np.c_[truecov.reshape((2,1)), np.diag(ols_main.cov_params()).reshape((2,1)), np.array([sps.tvar(coef[:,i]) for i in range(0,2)]).reshape((2,1))]
 summary = np.r_[np.c_[np.r_[a,b], ols_main.params.reshape((2,1)), np.array([sps.tmean(coef[:,i]) for i in range(0,2)]).reshape((2,1))], summary]
-header = ['label', 'Theoretical', 'Sample Estimate', 'Bootstrap Estiamte']
+header = ['Theoretical', 'Sample Estimate', 'Bootstrap Estiamte']
 labelx = ['a','b','var a', 'var b']
-string = "\t".join(header)+'\n'
-string = string + "\n".join([labelx[i]+'\t'+"\t".join(['{0:4.4}'.format(j) for j in summary[i]]) for i in range(0,4)])
-print('\n'+string)
+result = pd.DataFrame(summary, columns=header, index=labelx)
+print(result)
