@@ -13,6 +13,7 @@ import numpy.random as npr
 import scipy.stats as sps
 import scipy as sp
 import matplotlib.pyplot as plt
+import pandas as pd
 
 N = 1000 #Initial sample size
 B = 500 #number of bootstrap sample ie replication. 
@@ -22,14 +23,14 @@ data = sps.norm.rvs(size=N, loc=m, scale=s) #generating the random sample from n
 mhat = sps.tmean(data) #calculate sample mean estimate. 
 shat2 = sps.tvar(data) #calcualte sample variance estimate. 
 bootsample = [npr.choice(data,size=N,replace=True) for i in range(0,B)] #generate B bootstrap samples. 
-bootmean = [sps.tmean(s) for s in bootsample]
+bootmean = [sps.tmean(j) for j in bootsample]
 plt.hist(bootmean,bins=np.floor(B/10))
 plt.show()
-print('The population mean is {0}'.format(m))
-print('The population variance is {0}'.format(np.power(s,2)))
-print('The estimated mean is {0}'.format(mhat))
-print('The estimated variance is {0}'.format(shat2))
-print('The mean of the bootstrapped sample mean is {0}'.format(sps.tmean(bootmean)))
-print('The variance of the bootstrapped sample mean is {0}'.format(sps.tvar(bootmean)))
-print('The theoretical variance of the estiamted mean is {0}'.format(shat2/float(N)))
+columns = ['True', 'Estimated', 'Bootstrap']
+index = ['mean', 'variance']
+result = [ [m,mhat,sps.tmean(bootmean)], [np.power(s,2)/N, shat2/N, sps.tvar(bootmean)]]
+result = np.array(result)
+resultpd = pd.DataFrame(result, columns=columns, index=index)
+print(resultpd)
+
 
