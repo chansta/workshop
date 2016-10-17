@@ -1,0 +1,55 @@
+\documentclass[notheorems, envcountsect,10pt]{beamer}
+\usepackage{general_beamer_v1, fcsymbol}
+\usepackage{booktabs}
+\usepackage{xcolor,multirow}
+\usepackage{movie15}
+\usepackage{hyperref}
+\title{HDR Seminar: Automation \\ How to get more out of your computer?} 
+\author{Felix Chan \inst{1}}
+\institute{\inst{1} School of Economics and Finance, Curtin University}
+\setbeamertemplate{navigation symbols}{}
+\date{October 2016} 
+
+\begin{document} 
+\begin{frame}
+    \titlepage
+\end{frame} 
+
+\begin{frame}
+    \frametitle{Why?}
+    \begin{itemize}
+        \item Computer is not about calculation anymore. 
+        \item It stores data, our work, our lives... 
+        \item So we need to have a better relationship with our computers. 
+        \item So what is under every good relationship? \pause
+        \item Communication. 
+        \item Computer is getting smarter, but still not smart enough to understand our every wishes. 
+        \item We need to be able to speak their languages. 
+    \end{itemize} 
+\end{frame} 
+\begin{frame} 
+    \frametitle{To convince you that  ...}
+    \begin{itemize} 
+        \item little programming knowledge can go a long way to automate boring tasks;
+        \item programming is not difficult;
+        \item it is worth investing your time. 
+    \end{itemize} 
+\end{frame} 
+\begin{frame} 
+    \frametitle{Step-by-step} 
+    \begin{itemize}
+        \item Algorithm. Step-by-step instructions.
+        \item Semantic vs. syntactic. 
+        \item Five basic elements in learning most programming languages (certainly all high level ones). 
+    \end{itemize}
+\end{frame} 
+\begin{frame} 
+    \frametitle{It is `cheap'}
+    \begin{itemize}
+        \item A lot of programming languages are `free'. Python, C, C++, even on Windows!
+        \item Most specialised software come with their own scripting languages, even SPSS, Word and EXCEL (VBA).
+        \item These languages provide the five elements as foundation. Once you understand these elements, then it is just a matter of learning the syntax.  
+    \end{itemize} 
+\end{frame} 
+\end{document} 
+
